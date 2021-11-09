@@ -80,7 +80,7 @@ const useFirebase = () => {
 
   const saveUsers= (email,name,method) => {
     const saveUser= {email,name};
-    fetch('https://quiet-lake-55818.herokuapp.com/users',{
+    fetch('http://localhost:5000/users',{
       method: method,
       headers: {
         'Content-Type': 'application/json'        
@@ -100,12 +100,12 @@ const useFirebase = () => {
   }
 
 
-  useEffect(() => {
-    axios(`https://quiet-lake-55818.herokuapp.com/admin/${user?.email}`)
-    .then(res=>{
-     setAdmin(res.data.admin);
-    })
-  },[user?.email])
+//   useEffect(() => {
+//     axios(`https://quiet-lake-55818.herokuapp.com/admin/${user?.email}`)
+//     .then(res=>{
+//      setAdmin(res.data.admin);
+//     })
+//   },[user?.email])
 
 
 

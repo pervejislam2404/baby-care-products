@@ -9,11 +9,13 @@ import Register from './pages/Home/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './pages/Shared/PrivateRoute/PrivateRoute';
 import Footer from './pages/Shared/Footer/Footer';
+import AuthContext from './pages/Shared/Context/AuthContext';
 
 function App() {
   return (
     <div className="App overflow-hidden">
-       <Router>
+      <AuthContext>
+      <Router>
         <Header/>
          <Switch>
            <Route exact path="/">
@@ -32,12 +34,13 @@ function App() {
               <Register />
             </Route>
 
-            <PrivateRoute path="/dashboard">
+            <Route path="/dashboard">
               <Dashboard />
-            </PrivateRoute>
+            </Route>
          </Switch>
          <Footer/>
        </Router>
+      </AuthContext>
     </div>
   );
 }

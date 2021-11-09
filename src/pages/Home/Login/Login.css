@@ -1,0 +1,8 @@
+@media (min-width: 768px) {
+    .form-container {
+        padding: 0!important;
+    }
+    input {
+        width: 100%!important;
+    }
+}

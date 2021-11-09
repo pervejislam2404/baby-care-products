@@ -1,4 +1,5 @@
 import React from "react";
+import logo from './logo.png'
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
 import UseAuth from '../Context/UseAuth';
@@ -11,11 +12,13 @@ const Header = () => {
     <div className="container mx-auto">
       <Navbar expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand href="#">
+              <img className="" width="50" height="50" src={logo} alt="" />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="ms-auto my-2 my-lg-0"
+              className="ms-auto my-2 my-lg-0 fs-5"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
