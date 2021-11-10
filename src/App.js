@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './pages/Shared/PrivateRoute/PrivateRoute';
 import Footer from './pages/Shared/Footer/Footer';
 import AuthContext from './pages/Shared/Context/AuthContext';
+import ProductDetails from './pages/Home/Home/ProductDetails/ProductDetails';
 
 function App() {
   return (
@@ -34,9 +35,15 @@ function App() {
               <Register />
             </Route>
 
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Dashboard />
-            </Route>
+            </PrivateRoute>
+
+
+            <PrivateRoute path="/details/:id">
+              <ProductDetails/>
+            </PrivateRoute>
+
          </Switch>
          <Footer/>
        </Router>

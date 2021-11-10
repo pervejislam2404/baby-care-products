@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut,createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut,createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
 import axios from 'axios';
 import swal from "sweetalert";
 import firebaseInitialize from '../Firebase/Firebase.init';
@@ -22,6 +22,11 @@ const useFirebase = () => {
         const user = result.user;
         setUser(user);
         saveUsers(user?.email,user?.displayName,'PUT')
+        swal({
+          title: "Login successful!",
+          // text: "Regis ter successful!",
+          icon: "success",
+        });
         history.replace(redirect_url)
       })
       .catch((error) => {
@@ -39,15 +44,22 @@ const useFirebase = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {        
-        const user = userCredential.user;
-        setUser(user)
-        saveUsers(email,name,'POST');
+        setError("");
+        const newUser = { email, displayName: name };
+        saveUsers(email, name, "POST");
+        setUser(newUser);
+        // send name to firebase after creation
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {})
+          .catch((error) => {});
+        history.replace("/");
         swal({
-          title: "Register successful!",
+          title: "Account created successful successful!",
           // text: "Regis ter successful!",
           icon: "success",
         });
-        history?.replace('/')
       })
       .catch((error) => {       
         const errorMessage = error.message;
@@ -58,12 +70,14 @@ const useFirebase = () => {
 
 
 
-  const logInWithEmailAndPassword = (email, password) => {
+  const logInWithEmailAndPassword = (email, password,location,history) => {
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {      
+    .then((userCredential) => {  
+      const redirect_url = location?.state?.from || '/';    
       const user = userCredential.user;
       setError('')
       setUser(user)
+      history.replace(redirect_url)
       swal({
         title: "Login successful!",
         // text: "Regis ter successful!",
@@ -80,7 +94,7 @@ const useFirebase = () => {
 
   const saveUsers= (email,name,method) => {
     const saveUser= {email,name};
-    fetch('http://localhost:5000/users',{
+    fetch('https://fast-mesa-22453.herokuapp.com/users',{
       method: method,
       headers: {
         'Content-Type': 'application/json'        
@@ -100,12 +114,12 @@ const useFirebase = () => {
   }
 
 
-//   useEffect(() => {
-//     axios(`https://quiet-lake-55818.herokuapp.com/admin/${user?.email}`)
-//     .then(res=>{
-//      setAdmin(res.data.admin);
-//     })
-//   },[user?.email])
+  useEffect(() => {
+    axios(`https://fast-mesa-22453.herokuapp.com/checkAdmin/${user?.email}`)
+    .then(res=>{
+     setAdmin(res.data.admin);
+    })
+  },[user?.email])
 
 
 

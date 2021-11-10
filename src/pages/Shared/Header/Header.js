@@ -9,6 +9,7 @@ const Header = () => {
   const {user,logOut} = UseAuth()
 
   return (
+    <div className="bg-secondary">
     <div className="container mx-auto">
       <Navbar expand="lg">
         <Container fluid>
@@ -22,21 +23,22 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link as={HashLink} to="/">Home</Nav.Link>
-              <Nav.Link as={HashLink} to="/login">login</Nav.Link>              
-              <Nav.Link as={HashLink} to="/register">Register</Nav.Link>              
-              <Nav.Link as={HashLink} to="/dashboard">
+              <Nav.Link className="text-white" as={HashLink} to="/">Home</Nav.Link>
+              <Nav.Link className="text-white" as={HashLink} to="/login">login</Nav.Link>              
+              <Nav.Link className="text-white" as={HashLink} to="/register">Register</Nav.Link>              
+              <Nav.Link className="text-white" as={HashLink} to="/dashboard">
                 Dashboard
               </Nav.Link>
-             {user?.email &&  <Nav.Link className="text-danger fw-bold fs-6">
+             {user?.email &&  <Nav.Link className="text-info fw-bold fs-6">
                <img height="30" className="rounded-pill mx-2" width="30" src={user.photoURL} alt="" />
                 {user.email}
               </Nav.Link>}
-              {user?.email && <Button onClick={logOut} variant="primary">logOut</Button>}
+              {user?.email && <Button className="px-4" onClick={logOut} variant="danger">logOut</Button>}
             </Nav>           
           </Navbar.Collapse>
         </Container>
       </Navbar>
+    </div>
     </div>
   );
 };

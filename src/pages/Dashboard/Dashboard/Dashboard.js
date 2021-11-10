@@ -13,6 +13,8 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
 import Review from '../Review/Review';
 import ManageProducts from "../ManageProducts/ManageProducts";
+import { Button } from 'react-bootstrap';
+import AddProduct from '../AddProduct/AddProduct';
 
 
 
@@ -21,7 +23,7 @@ import ManageProducts from "../ManageProducts/ManageProducts";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
-  const {admin} = UseAuth();
+  const {admin,logOut} = UseAuth();
   return (
     <div>
       <div className="container">
@@ -37,25 +39,32 @@ const Dashboard = () => {
                  <Link className="text-decoration-none text-secondary" to={`${url}/payment`}>Payment</Link>
               </li>
 
-             <li className="list-group-item border-0 fs-5">                
+             {admin && <li className="list-group-item border-0 fs-5">                
                  <Link className="text-decoration-none text-secondary" to={`${url}/makeAdmin`}>Make Admin</Link>
-              </li>
+              </li>}
 
-              <li className="list-group-item border-0 fs-5">
-                  
-                  <Link className="text-decoration-none text-secondary" to={`${url}/manageAllOrders`}>Manage Services</Link>
-              </li>
+             {admin && <li className="list-group-item border-0 fs-5">                  
+                  <Link className="text-decoration-none text-secondary" to={`${url}/manageAllOrders`}>Manage All Orders</Link>
+              </li>}
               
 
               <li className="list-group-item border-0 fs-5">                  
                   <Link className="text-decoration-none text-secondary" to={`${url}/review`}>Review</Link>
               </li>
 
-              <li className="list-group-item border-0 fs-5">                  
+             {admin && <li className="list-group-item border-0 fs-5">                  
                   <Link className="text-decoration-none text-secondary" to={`${url}/manageProducts`}>Manage Products</Link>
+              </li>}
+
+              {admin && <li className="list-group-item border-0 fs-5">                  
+                  <Link className="text-decoration-none text-secondary" to={`${url}/addProduct`}>Add Product</Link>
+              </li>}
+
+
+              <li className="list-group-item border-0 fs-5">                  
+                  <Button onClick={logOut} variant="danger">Logout</Button>
               </li>
 
-             
             </ul>
           </div>
           <div style={{backgroundColor:'#F9F9F9'}} className="col-12 col-lg-9">
@@ -82,6 +91,10 @@ const Dashboard = () => {
 
               <Route path={`${path}/manageProducts`}>
                 <ManageProducts/>
+              </Route>
+
+              <Route path={`${path}/addProduct`}>
+                <AddProduct/>
               </Route>
 
             </Switch>

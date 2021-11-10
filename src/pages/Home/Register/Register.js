@@ -30,12 +30,12 @@ const Register = () => {
     <div className="py-5 px-2" style={registerStyle}>
       <div className="container mx-auto bg-white p-5 rounded">
         <div className="row">
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 p-2">
             <img className="img-fluid" src={registerBg} alt="" />
           </div>
 
           <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
-            <form className="gap-2" onSubmit={handleSubmit(onSubmit)}>
+            <form className="gap-2 px-3" onSubmit={handleSubmit(onSubmit)}>
               <input
                 className="bg-light p-3 fs-5 border-0" 
                 {...register("firstName", { required: true })}
@@ -64,7 +64,7 @@ const Register = () => {
               {/* <input type="number" {...register("age", { min: 18, max: 99 })} /> */}
               <input className="bg-warning p-2 fs-5 border-0" type="submit" />
               <div className="text-center p-3">
-                  <Link className="text-decoration-none fw-bold fs-5 text-danger" to="/login">Do you have account? Login</Link>
+                  <Link className="text-decoration-none fw-bold fs-5 text-danger" to="/login">Do you have account?<span className="text-primary"> Login</span></Link>
               </div>
             </form>
           </div>
