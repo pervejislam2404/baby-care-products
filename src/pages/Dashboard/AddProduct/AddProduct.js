@@ -1,12 +1,28 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Button } from 'react-bootstrap';
+import axios from 'axios';
+import swal from 'sweetalert';
 
 const AddProduct = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
+        axios.post(`https://fast-mesa-22453.herokuapp.com/addProduct`,data)
+        .then(res=>{
+          if(res?.data?.insertedId){
+            swal({
+              title: "Product has been added!",
+              icon: "success",
+            });
+            reset();
+          }else{
+            swal({
+              title: "Oops something happend!",
+              icon: "error",
+            });
+          }
+        })
       };
 
 
@@ -17,7 +33,7 @@ const AddProduct = () => {
                 
             <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
                 <div className="text-center text-danger fw-bold">
-                    <h3 className="fw-bold">Add A Service</h3>
+                    <h3 className="fw-bold">Add A Product</h3>
                 </div>
 
 
@@ -31,7 +47,7 @@ const AddProduct = () => {
 
               <input
               style={{background:'rgb(238 238 238)'}}
-                className="text-white p-3 fs-5 border-0 rounded"                 
+                className="text-dark p-3 fs-5 border-0 rounded"                 
                 {...register("img", { required: true })}
                 placeholder="Photo link"
                 

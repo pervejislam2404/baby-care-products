@@ -33,9 +33,7 @@ const Products = () => {
                   <Card.Img height="220" variant="top" src={product?.img} />
                   <Card.Body>
                     <Card.Title>{product?.title}</Card.Title>
-                    {/* <Card.Text>
-                     {product?.description}
-                    </Card.Text> */}
+                   
                     <div className="d-flex justify-content-between align-items-center">
                           <Button className="text-white fw-bold px-5 border-0">{product?.price}</Button> <br/>
                           <Button className="text-dark fw-bold px-5 border-0" onClick={()=>handleBuy(product?._id)} variant="warning">Buy</Button>

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 import UseAuth from '../../../Shared/Context/UseAuth';
+import swal from 'sweetalert';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -11,7 +12,21 @@ const ProductDetails = () => {
   const {user} = UseAuth()
 
   const { register, handleSubmit,reset } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    delete data._id
+    data.status='pending'
+    console.log(data)
+    axios.post('https://fast-mesa-22453.herokuapp.com/saveOrder',data)
+    .then(res => {
+      if(res?.data?.insertedId){        
+        swal({
+          title: "purchase successful!",
+          // text: "Regis ter successful!",
+          icon: "success",
+        });
+      }
+    })
+  };
 
   useEffect(() => {
     axios(`https://fast-mesa-22453.herokuapp.com/singleProduct/${id}`).then((res) =>{

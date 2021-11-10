@@ -11,6 +11,8 @@ import PrivateRoute from './pages/Shared/PrivateRoute/PrivateRoute';
 import Footer from './pages/Shared/Footer/Footer';
 import AuthContext from './pages/Shared/Context/AuthContext';
 import ProductDetails from './pages/Home/Home/ProductDetails/ProductDetails';
+import MoreProducts from './pages/Home/MoreProducts/MoreProducts';
+import NotFound from './pages/Shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -35,6 +37,10 @@ function App() {
               <Register />
             </Route>
 
+            <Route path="/moreProducts">
+              <MoreProducts/>
+            </Route>
+
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
@@ -43,6 +49,10 @@ function App() {
             <PrivateRoute path="/details/:id">
               <ProductDetails/>
             </PrivateRoute>
+
+            <Route path="*">
+              <NotFound/>
+            </Route>
 
          </Switch>
          <Footer/>

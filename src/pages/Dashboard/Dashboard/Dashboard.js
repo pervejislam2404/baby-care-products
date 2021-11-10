@@ -15,6 +15,7 @@ import Review from '../Review/Review';
 import ManageProducts from "../ManageProducts/ManageProducts";
 import { Button } from 'react-bootstrap';
 import AddProduct from '../AddProduct/AddProduct';
+import NotFound from '../../Shared/NotFound/NotFound';
 
 
 
@@ -95,6 +96,10 @@ const Dashboard = () => {
 
               <Route path={`${path}/addProduct`}>
                 <AddProduct/>
+              </Route>
+
+              <Route path={`${path}/*`}>
+                <NotFound/>
               </Route>
 
             </Switch>
