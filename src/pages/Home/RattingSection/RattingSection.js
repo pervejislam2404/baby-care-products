@@ -16,7 +16,7 @@ const RattingSection = () => {
   return (
     <div className="bg-light">
       <div className="container py-5">
-          <div className="text-center text-danger p-5">
+          <div className="text-center fw-bold text-danger p-5">
               <h1>User Review</h1>
           </div>
         <div className="row g-3">

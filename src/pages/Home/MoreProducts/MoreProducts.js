@@ -37,8 +37,8 @@ const MoreProducts = () => {
                   <Card className="bg-info p-2">
                     <Card.Img height="220" variant="top" src={product?.img} />
                     <Card.Body>
-                      <Card.Title>{product?.title}</Card.Title>
-
+                      <Card.Title className="text-dark fw-bold">{product?.title}</Card.Title>
+                      <Card.Text className="text-dark">{product?.description.slice(0,40)} ...</Card.Text>
                       <div className="d-flex justify-content-between align-items-center">
                         <Button className="text-white fw-bold px-5 border-0">
                           {product?.price}

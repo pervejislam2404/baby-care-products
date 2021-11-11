@@ -32,8 +32,8 @@ const Products = () => {
                 <Card className="bg-info p-2">
                   <Card.Img height="220" variant="top" src={product?.img} />
                   <Card.Body>
-                    <Card.Title>{product?.title}</Card.Title>
-                   
+                    <Card.Title className="fw-bold text-dark">{product?.title}</Card.Title>
+                   <Card.Text>{product?.description.slice(0,40)} ...</Card.Text>
                     <div className="d-flex justify-content-between align-items-center">
                           <Button className="text-white fw-bold px-5 border-0">{product?.price}</Button> <br/>
                           <Button className="text-dark fw-bold px-5 border-0" onClick={()=>handleBuy(product?._id)} variant="warning"><i className="fas fa-cart-plus text-primary fs-5"/></Button>

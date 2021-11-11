@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="row py-5">
 
-          <div className="col-12 col-lg-3 text-center">
+          <div className="col-12 col-lg-3 text-left">
             <ListGroup
               style={footerStyle}
               className="border-0 bg-none text-light"
@@ -26,24 +26,28 @@ const Footer = () => {
                 style={footerStyle}
                 className="border-0 fs-5 text-light"
               >
+                <i class="fas fa-map-marker-alt pe-2"></i>
                1203 Town Center Drive FL 33458
               </ListGroup.Item>
               <ListGroup.Item
                 style={footerStyle}
                 className="border-0 fs-5 text-light"
               >
+                <i class="fas fa-map-marker-alt pe-2"></i>
                 USA
               </ListGroup.Item>
               <ListGroup.Item
                 style={footerStyle}
                 className="border-0 fs-5 text-light"
               >
+                <i class="fas fa-phone-square-alt pe-2"></i>
                +841 123 456 78
               </ListGroup.Item>
               <ListGroup.Item
                 style={footerStyle}
                 className="border-0 fs-5 text-light"
               >
+                <i class="fas fa-envelope pe-2"></i>
                info@lindashop.com
               </ListGroup.Item>
             </ListGroup>
