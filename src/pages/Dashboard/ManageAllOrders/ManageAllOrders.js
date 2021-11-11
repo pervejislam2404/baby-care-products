@@ -56,9 +56,14 @@ const handleStatus = id => {
   return (
     <div>
       <div className="container py-3 overflow-scroll">
+
+        {/* spinner */}
       {loader && <div className="text-center p-5">
                     <Spinner animation="grow" variant="info" />
                 </div>}
+
+        {/* handle-all-ordered-products */}
+
         <Table striped bordered hover>
           <thead>
             <tr className="text-center">
@@ -73,7 +78,7 @@ const handleStatus = id => {
               
             </tr>
           </thead>
-
+          {/* ordered-product-information */}
           <tbody>
             {allOrders.map((product,index) => {
               return (
@@ -90,6 +95,7 @@ const handleStatus = id => {
               );
             })}
           </tbody>
+
         </Table>
       </div>
     </div>

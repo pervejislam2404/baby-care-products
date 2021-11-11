@@ -12,10 +12,12 @@ const ProductDetails = () => {
   const {user} = UseAuth()
 
   const { register, handleSubmit,reset } = useForm();
+
+
   const onSubmit = data => {
     delete data._id
     data.status='pending'
-    console.log(data)
+    
     axios.post('https://fast-mesa-22453.herokuapp.com/saveOrder',data)
     .then(res => {
       if(res?.data?.insertedId){        
@@ -34,11 +36,17 @@ const ProductDetails = () => {
       reset(res.data);}
     );
   }, [id,reset]);
+
+
   return (
     <div>
+
+      {/* details-of-selected-product-and-purchase */}
+      
       <div className="container bg-light">
         <div className="row">
           <div className="col-12 col-lg-6 p-5">
+
             <Card className="bg-info p-3">
               <Card.Img height="350" variant="top" src={product?.img} />
               <Card.Body className="">
@@ -46,10 +54,10 @@ const ProductDetails = () => {
                 <Card.Title>{product?.price}</Card.Title>
                 <Card.Text className="fs-5 text-muted">
                  {product?.description}
-                </Card.Text>
-               
+                </Card.Text>               
               </Card.Body>
             </Card>
+
           </div>
 
 

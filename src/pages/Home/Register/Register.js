@@ -13,7 +13,7 @@ const registerStyle = {
 
 
 const Register = () => {
-    const {user,makeUserWithEmailPass} = UseAuth();
+    const {error,makeUserWithEmailPass} = UseAuth();
     const history = useHistory();
 
 
@@ -34,7 +34,8 @@ const Register = () => {
           <div className="col-12 col-lg-6 p-2">
             <img className="img-fluid" src={registerBg} alt="" />
           </div>
-
+          
+           {/* user-registration-form */}
           <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
             <form className="gap-2 px-3" onSubmit={handleSubmit(onSubmit)}>
               <input
@@ -65,6 +66,7 @@ const Register = () => {
               {/* <input type="number" {...register("age", { min: 18, max: 99 })} /> */}
               <Button variant="warning" className="p-2 w-100 px-5 fs-5 border-0" type="submit">Register</Button>
               <div className="text-center p-3">
+                  <h5 className="text-danger">{error}</h5>
                   <Link className="text-decoration-none fw-bold fs-5 text-danger" to="/login">Do you have account?<span className="text-primary"> Login</span></Link>
               </div>
             </form>

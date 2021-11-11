@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -30,6 +30,9 @@ const MakeAdmin = () => {
   return (
     <div>
       <div className="d-flex flex-column justify-content-center align-items-center p-5">
+
+        {/* adding-admin-with-email-address */}
+
         <form className="gap-2" onSubmit={handleSubmit(onSubmit)}>
           <input
             className="bg-light p-2 fs-6 border-0 bg-white my-3 shadow"

@@ -21,6 +21,9 @@ const Products = () => {
   }
   return (
     <div>
+
+      {/* all-products-detail */}
+      
       <div className="container mx-auto">
         <div className="row py-5 g-3">
            {loader && <div className="mx-auto w-50 text-center p-5">
@@ -31,6 +34,7 @@ const Products = () => {
               <div key={index} className="col-12 col-lg-3">
                 <Card className="bg-info p-2">
                   <Card.Img height="220" variant="top" src={product?.img} />
+
                   <Card.Body>
                     <Card.Title className="fw-bold text-dark">{product?.title}</Card.Title>
                    <Card.Text>{product?.description.slice(0,40)} ...</Card.Text>
@@ -39,6 +43,7 @@ const Products = () => {
                           <Button className="text-dark fw-bold px-5 border-0" onClick={()=>handleBuy(product?._id)} variant="warning"><i className="fas fa-cart-plus text-primary fs-5"/></Button>
                     </div>
                   </Card.Body>
+
                 </Card>
               </div>
             );

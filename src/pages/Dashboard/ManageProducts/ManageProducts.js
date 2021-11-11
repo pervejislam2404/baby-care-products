@@ -54,24 +54,19 @@ const ManageProducts = () => {
             <tr className="text-center">
               <th>Index</th>
               <th>Product Name</th>
-              {/* <th>User Email</th> */}
               <th>Price</th>
               <th>Action</th>
-              {/* <th>Status</th> */}
-              
             </tr>
           </thead>
-
+          {/* all-products-information */}
           <tbody>
             {allProducts.map((product,index) => {
               return (
                 <tr key={index} className="text-center">
                   <td>{index + 1}</td>
                   <td>{product?.title}</td>
-                  {/* <td>{product?.email}</td> */}
                   <td>{product?.price}</td>
                   <td><Button onClick={()=>handleDelete(product._id)} variant="danger"><i className="fas fa-trash-alt pe-2"></i>Delete</Button></td>
-                  {/* <td><Button onClick={()=>handleStatus(product._id)} variant={product?.status=== 'shipped'? 'info':'warning'}>{product?.status}</Button></td> */}
                 </tr>
               );
             })}

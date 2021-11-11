@@ -20,7 +20,7 @@ const MoreProducts = () => {
   }
 
 
-
+// rest-products-details
   return (
     <div>
       <div className="container">
@@ -34,8 +34,10 @@ const MoreProducts = () => {
             {allProducts.map((product, index) => {
               return (
                 <div key={index} className="col-12 col-lg-3">
+
                   <Card className="bg-info p-2">
                     <Card.Img height="220" variant="top" src={product?.img} />
+
                     <Card.Body>
                       <Card.Title className="text-dark fw-bold">{product?.title}</Card.Title>
                       <Card.Text className="text-dark">{product?.description.slice(0,40)} ...</Card.Text>
@@ -44,6 +46,7 @@ const MoreProducts = () => {
                           {product?.price}
                         </Button>{" "}
                         <br />
+
                         <Button
                           className="text-dark fw-bold px-5 border-0"
                           onClick={() => handleBuy(product?._id)}
@@ -51,6 +54,7 @@ const MoreProducts = () => {
                         >
                           <i className="fas fa-cart-plus text-primary fs-5"></i>                        
                         </Button>
+
                       </div>
                     </Card.Body>
                   </Card>

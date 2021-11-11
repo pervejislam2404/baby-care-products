@@ -60,11 +60,23 @@ const {user} = UseAuth();
                           <Card.Img height="220" variant="top" src={product?.img} />
                           <Card.Body>
                             <Card.Title>{product?.title}</Card.Title>                           
-                            <Card.Title className="text-danger fw-bold">{product?.price}</Card.Title>                           
+                            <Card.Title className="text-danger fw-bold">{product?.price}</Card.Title>   
+
+
                             <div className="d-flex flex-column justify-content-between align-items-start py-3">
                                   <Button variant={product?.status === 'shipped'? 'success':'danger'} className="text-white fw-bold px-3 border-0">{product?.status}</Button> <br/>
-                                  <Button className="text-dark fw-bold px-3 border-0" onClick={()=>handleDelete(product?._id)} variant="warning"><i className="fas fa-trash-alt pe-2"></i>Delete</Button>
+                                  <Button 
+                                  className="text-dark fw-bold px-3 border-0" 
+                                  onClick={()=>handleDelete(product?._id)} 
+                                  variant="warning"
+                                  >
+                                      <i 
+                                      className="fas fa-trash-alt pe-2"
+                                      >
+                                      </i>Delete
+                                  </Button>
                             </div>
+
                           </Card.Body>
                         </Card>
                       </div>

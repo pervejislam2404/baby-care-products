@@ -8,7 +8,7 @@ import loginBg from './login-bg.svg';
 import google from './google.png';
 
 const Login = () => {
-  const { loginWithGoogle, logInWithEmailAndPassword } = UseAuth();
+  const { loginWithGoogle, logInWithEmailAndPassword,error } = UseAuth();
   const { register, handleSubmit } = useForm();
   
     const location = useLocation();
@@ -29,6 +29,7 @@ const Login = () => {
       <div className="container p-5">
         <div className="row">
 
+            {/* login-form */}
           <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
             <form className="gap-2 px-3" onSubmit={handleSubmit(onSubmit)}>
               
@@ -45,9 +46,11 @@ const Login = () => {
                 {...register("password", { required: true })}
                 placeholder="password"
               />
-              {/* <input type="number" {...register("age", { min: 18, max: 99 })} /> */}
+              
               <input className="bg-warning p-2 fs-5 border-0" type="submit" />
               <div className="text-center p-3">
+                
+              <h5 className="text-danger">{error}</h5>
               <h4>-----------or------------</h4>
              <div className="d-flex justify-content-center bg-light">              
                   <Button className="fs-5 fw-bold" onClick={handleGoogleSign} variant="none">

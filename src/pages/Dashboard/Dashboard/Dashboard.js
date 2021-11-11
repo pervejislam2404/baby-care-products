@@ -31,14 +31,15 @@ const Dashboard = () => {
         <div className="row my-4">
           <div className="col-12 col-lg-3">
             <ul className="list-group border-0">
-
+              
+             {/* all-dashboard's-route */}
               <li className="list-group-item border-0 fs-5" aria-current="true">       
                  <i className="fas fa-user px-2"></i>           
                  <Link className="text-decoration-none text-secondary" to={`${url}`}>My Orders</Link>
               </li>
 
               <li className="list-group-item border-0 fs-5">  
-              <i className="fas fa-money-bill-wave px-2"></i>               
+                 <i className="fas fa-money-bill-wave px-2"></i>               
                  <Link className="text-decoration-none text-secondary" to={`${url}/payment`}>Payment</Link>
               </li>
 
@@ -77,6 +78,9 @@ const Dashboard = () => {
             </ul>
           </div>
           <div style={{backgroundColor:'#F9F9F9'}} className="col-12 col-lg-9">
+
+            {/* all-dashboard-route */}
+
             <Switch>
               <Route exact path={path}>
                  <MyOrders/>

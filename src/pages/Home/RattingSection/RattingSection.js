@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./RattingSection.css";
 import Rating from "react-rating";
-// var Rating = require('react-rating');
 import axios from "axios";
 import { Card } from "react-bootstrap";
 
@@ -13,22 +12,28 @@ const RattingSection = () => {
       setReview(res.data);
     });
   }, []);
+
   return (
     <div className="bg-light">
+
       <div className="container py-5">
           <div className="text-center fw-bold text-danger p-5">
               <h1>User Review</h1>
           </div>
         <div className="row g-3">
+          
+          {/* showing-all-user-review */}
           {review.map((review, index) => {
             return (
               <div key={index} className="col-lg-3 col-12">
                 <Card className="border-0 rounded">
+
                   <Card.Body className="p-3 shadow">
                     <div className="d-flex justify-content-start align-items-center">
                       <img className="rounded-pill me-2" height="60" width="60" src={review?.img} alt="" />
                       <Card.Title>{review?.name}</Card.Title>
                     </div>
+
                     <div className="py-3">
                       <Rating
                         emptySymbol="far custom-color fa-star"
@@ -37,8 +42,10 @@ const RattingSection = () => {
                         readonly
                       />
                     </div>
+
                     <Card.Text>{review?.description}</Card.Text>
                   </Card.Body>
+
                 </Card>
               </div>
             );
