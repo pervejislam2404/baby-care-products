@@ -4,6 +4,7 @@ import {Link,useHistory} from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import registerBg from "./register-bg.svg";
 import UseAuth from "../../Shared/Context/UseAuth";
+import { Button } from 'react-bootstrap';
 
 const registerStyle = {
   backgroundColor: "#F8F8F8",
@@ -62,7 +63,7 @@ const Register = () => {
                 placeholder="password"
               />
               {/* <input type="number" {...register("age", { min: 18, max: 99 })} /> */}
-              <input className="bg-warning p-2 fs-5 border-0" type="submit" />
+              <Button variant="warning" className="p-2 w-100 px-5 fs-5 border-0" type="submit">Register</Button>
               <div className="text-center p-3">
                   <Link className="text-decoration-none fw-bold fs-5 text-danger" to="/login">Do you have account?<span className="text-primary"> Login</span></Link>
               </div>

@@ -32,38 +32,46 @@ const Dashboard = () => {
           <div className="col-12 col-lg-3">
             <ul className="list-group border-0">
 
-              <li className="list-group-item border-0 fs-5" aria-current="true">                  
+              <li className="list-group-item border-0 fs-5" aria-current="true">       
+                 <i className="fas fa-user px-2"></i>           
                  <Link className="text-decoration-none text-secondary" to={`${url}`}>My Orders</Link>
               </li>
 
-              <li className="list-group-item border-0 fs-5">                 
+              <li className="list-group-item border-0 fs-5">  
+              <i className="fas fa-money-bill-wave px-2"></i>               
                  <Link className="text-decoration-none text-secondary" to={`${url}/payment`}>Payment</Link>
               </li>
 
-             {admin && <li className="list-group-item border-0 fs-5">                
+             {admin && <li className="list-group-item border-0 fs-5">      
+             <i className="fas fa-user-lock px-2"></i>          
                  <Link className="text-decoration-none text-secondary" to={`${url}/makeAdmin`}>Make Admin</Link>
               </li>}
 
-             {admin && <li className="list-group-item border-0 fs-5">                  
+             {admin && <li className="list-group-item border-0 fs-5">  
+                  <i className="fas fa-tasks px-2"></i>                
                   <Link className="text-decoration-none text-secondary" to={`${url}/manageAllOrders`}>Manage All Orders</Link>
               </li>}
               
 
-              <li className="list-group-item border-0 fs-5">                  
+              <li className="list-group-item border-0 fs-5">
+              <i className="fas fa-mouse px-2"></i>                  
                   <Link className="text-decoration-none text-secondary" to={`${url}/review`}>Review</Link>
               </li>
 
-             {admin && <li className="list-group-item border-0 fs-5">                  
+             {admin && <li className="list-group-item border-0 fs-5">  
+             <i className="fas fa-list-alt px-2"></i>                
                   <Link className="text-decoration-none text-secondary" to={`${url}/manageProducts`}>Manage Products</Link>
               </li>}
 
-              {admin && <li className="list-group-item border-0 fs-5">                  
+              {admin && <li className="list-group-item border-0 fs-5">    
+              <i className="fas fa-plus-circle px-2"></i>              
                   <Link className="text-decoration-none text-secondary" to={`${url}/addProduct`}>Add Product</Link>
               </li>}
 
 
-              <li className="list-group-item border-0 fs-5">                  
-                  <Button onClick={logOut} variant="danger">Logout</Button>
+              <li className="list-group-item border-0 fs-5">      
+                         
+                  <Button onClick={logOut} variant="danger"><i className="fas fa-sign-out-alt px-2 fs-5"></i> Logout</Button>
               </li>
 
             </ul>

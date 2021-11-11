@@ -1,10 +1,12 @@
+console.log(process.env)
+
 const firebaseConfig = {
-    apiKey: "AIzaSyCjtSj4z4T2QIeEB-h10WxHAq063k2tktM",
-    authDomain: "baby-care-products-50b0d.firebaseapp.com",
-    projectId: "baby-care-products-50b0d",
-    storageBucket: "baby-care-products-50b0d.appspot.com",
-    messagingSenderId: "574630230141",
-    appId: "1:574630230141:web:b5053106fc4c1b7bb09914"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 export default firebaseConfig;

@@ -87,6 +87,13 @@ const ProductDetails = () => {
                 placeholder="Title"
               />
 
+              <input
+                className="bg-light p-3 fs-5 border-0 my-3 shadow rounded"                
+                type="text"
+                {...register("phone", { required: true })}
+                placeholder="Phone"
+              />
+
                <input
                 className="bg-light p-3 fs-5 border-0 my-3 shadow rounded"
                 type="text"
@@ -103,7 +110,7 @@ const ProductDetails = () => {
               />
 
               <div className="text-center">
-              <Button variant="warning" className="bg-warning p-2 px-4 fs-5 border-0" type="submit">Purchase</Button>
+              <Button variant="warning" className="bg-warning p-2 px-4 fs-5 border-0" type="submit"><i className="fas fa-shopping-cart pe-2"></i>Purchase</Button>
               </div>
               
             </form>

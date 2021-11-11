@@ -1,5 +1,5 @@
 import React from "react";
-import logo from './logo.png'
+import logo from './logo.jpg'
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
 import UseAuth from '../Context/UseAuth';
@@ -33,7 +33,7 @@ const Header = () => {
                <img height="30" className="rounded-pill mx-2" width="30" src={user.photoURL} alt="" />
                 {user.email}
               </Nav.Link>}
-              {user?.email && <Button className="px-4" onClick={logOut} variant="danger">logOut</Button>}
+              {user?.email && <Button className="px-2" onClick={logOut} variant="danger"><i className="fas fa-sign-out-alt px-2 fs-6"></i> logOut</Button>}
             </Nav>           
           </Navbar.Collapse>
         </Container>

@@ -70,7 +70,7 @@ const ManageProducts = () => {
                   <td>{product?.title}</td>
                   {/* <td>{product?.email}</td> */}
                   <td>{product?.price}</td>
-                  <td><Button onClick={()=>handleDelete(product._id)} variant="danger">Delete</Button></td>
+                  <td><Button onClick={()=>handleDelete(product._id)} variant="danger"><i className="fas fa-trash-alt pe-2"></i>Delete</Button></td>
                   {/* <td><Button onClick={()=>handleStatus(product._id)} variant={product?.status=== 'shipped'? 'info':'warning'}>{product?.status}</Button></td> */}
                 </tr>
               );

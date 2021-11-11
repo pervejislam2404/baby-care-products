@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
   const [loader,setLoader] = useState(true);
-  const [pageRender,setPageRender] = useState(false);
+  const [pageRender,setPageRender] = useState(0);
 
   useEffect(() => {
     axios("https://fast-mesa-22453.herokuapp.com/getAllOrders").then((response) => {
@@ -49,13 +49,13 @@ const handleStatus = id => {
                 title: "Product has been approved!",
                 icon: "success",
               });
-              setPageRender(true)
+              setPageRender(Math.floor(Math.random()*20))
         }
     })
 }
   return (
     <div>
-      <div className="container py-3">
+      <div className="container py-3 overflow-scroll">
       {loader && <div className="text-center p-5">
                     <Spinner animation="grow" variant="info" />
                 </div>}
@@ -65,10 +65,11 @@ const handleStatus = id => {
               <th>Index</th>
               <th>Product Name</th>
               <th>User Email</th>
+              <th>User Phone</th>
               <th>User Address</th>
               <th>Price</th>
               <th>Action</th>
-              <th>Status</th>
+              <th>Manage Status</th>
               
             </tr>
           </thead>
@@ -77,12 +78,13 @@ const handleStatus = id => {
             {allOrders.map((product,index) => {
               return (
                 <tr key={index} className="text-center">
-                  <td>{index}</td>
+                  <td>{index + 1}</td>
                   <td>{product?.title}</td>
                   <td>{product?.email}</td>
+                  <td>{product?.phone}</td>
                   <td>{product?.address}</td>
                   <td>{product?.price}</td>
-                  <td><Button onClick={()=>handleDelete(product._id)} variant="danger">Delete</Button></td>
+                  <td><Button onClick={()=>handleDelete(product._id)} variant="danger"><i className="fas fa-trash-alt pe-2"></i>Delete</Button></td>
                   <td><Button onClick={()=>handleStatus(product._id)} variant={product?.status=== 'shipped'? 'info':'warning'}>{product?.status}</Button></td>
                 </tr>
               );

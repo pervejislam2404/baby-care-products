@@ -19,11 +19,11 @@ const RattingSection = () => {
           <div className="text-center text-danger p-5">
               <h1>User Review</h1>
           </div>
-        <div className="row">
+        <div className="row g-3">
           {review.map((review, index) => {
             return (
-              <div key={index} className="col-lg-3 col-6">
-                <Card className="border-0">
+              <div key={index} className="col-lg-3 col-12">
+                <Card className="border-0 rounded">
                   <Card.Body className="p-3 shadow">
                     <div className="d-flex justify-content-start align-items-center">
                       <img className="rounded-pill me-2" height="60" width="60" src={review?.img} alt="" />

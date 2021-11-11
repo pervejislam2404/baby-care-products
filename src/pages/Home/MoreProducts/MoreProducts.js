@@ -49,7 +49,7 @@ const MoreProducts = () => {
                           onClick={() => handleBuy(product?._id)}
                           variant="warning"
                         >
-                          Buy
+                          <i className="fas fa-cart-plus text-primary fs-5"></i>                        
                         </Button>
                       </div>
                     </Card.Body>
