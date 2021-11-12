@@ -26,28 +26,28 @@ const Footer = () => {
                 style={footerStyle}
                 className="border-0 fs-5 text-light"
               >
-                <i class="fas fa-map-marker-alt pe-2"></i>
+                <i className="fas fa-map-marker-alt pe-2"></i>
                1203 Town Center Drive FL 33458
               </ListGroup.Item>
               <ListGroup.Item
                 style={footerStyle}
                 className="border-0 fs-5 text-light"
               >
-                <i class="fas fa-map-marker-alt pe-2"></i>
+                <i className="fas fa-map-marker-alt pe-2"></i>
                 USA
               </ListGroup.Item>
               <ListGroup.Item
                 style={footerStyle}
                 className="border-0 fs-5 text-light"
               >
-                <i class="fas fa-phone-square-alt pe-2"></i>
+                <i className="fas fa-phone-square-alt pe-2"></i>
                +841 123 456 78
               </ListGroup.Item>
               <ListGroup.Item
                 style={footerStyle}
                 className="border-0 fs-5 text-light"
               >
-                <i class="fas fa-envelope pe-2"></i>
+                <i className="fas fa-envelope pe-2"></i>
                info@lindashop.com
               </ListGroup.Item>
             </ListGroup>

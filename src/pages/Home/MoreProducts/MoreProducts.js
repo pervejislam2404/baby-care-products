@@ -9,7 +9,7 @@ const MoreProducts = () => {
   const history = useHistory();
 
   useEffect(() => {
-    axios("https://fast-mesa-22453.herokuapp.com/getAllProducts").then((res) => {
+    axios("https://secure-sierra-71840.herokuapp.com/getAllProducts").then((res) => {
         setLoader(false)
       setAllProducts(res.data);
     });

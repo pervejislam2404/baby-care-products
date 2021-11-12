@@ -7,12 +7,13 @@ import  swal from 'sweetalert';
 const MyOrders = () => {
 const [products,setProducts] = useState();
 const [loader,setLoader] = useState(true);
+const {token} = UseAuth() 
 
 
 const {user} = UseAuth();
 
     useEffect(() =>{
-        axios(`https://fast-mesa-22453.herokuapp.com/userOrders/${user?.email}`)
+        axios(`https://secure-sierra-71840.herokuapp.com/userOrders/${user?.email}`)
         .then(res=>{
             setLoader(false)
            setProducts(res.data);
@@ -28,7 +29,12 @@ const {user} = UseAuth();
           })
           .then((willDelete) => {
             if (willDelete) {
-                axios.delete(`https://fast-mesa-22453.herokuapp.com/deleteOrder/${id}`)
+                axios.delete(`https://secure-sierra-71840.herokuapp.com/deleteOrder/${id}`,{
+                  headers: {
+                    'authorization': `Bearer ${token}`,
+                    'Content-type': 'application/json'
+                  }
+                })
                 .then(res=>{
                     console.log(res.data);
                     if(res?.data?.deletedCount){

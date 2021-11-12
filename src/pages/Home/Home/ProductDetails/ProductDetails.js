@@ -18,7 +18,7 @@ const ProductDetails = () => {
     delete data._id
     data.status='pending'
     
-    axios.post('https://fast-mesa-22453.herokuapp.com/saveOrder',data)
+    axios.post('https://secure-sierra-71840.herokuapp.com/saveOrder',data)
     .then(res => {
       if(res?.data?.insertedId){        
         swal({
@@ -31,7 +31,7 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
-    axios(`https://fast-mesa-22453.herokuapp.com/singleProduct/${id}`).then((res) =>{
+    axios(`https://secure-sierra-71840.herokuapp.com/singleProduct/${id}`).then((res) =>{
       setProduct(res.data);
       reset(res.data);}
     );

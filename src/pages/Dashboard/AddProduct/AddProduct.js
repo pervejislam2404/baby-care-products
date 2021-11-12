@@ -3,16 +3,22 @@ import { useForm } from "react-hook-form";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import swal from "sweetalert";
+import UseAuth from '../../Shared/Context/UseAuth';
 
 const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
+  const {token} = UseAuth()
 
 
   // adding-new-product-to-database 
 
   const onSubmit = (data) => {
-    axios
-      .post(`https://fast-mesa-22453.herokuapp.com/addProduct`, data)
+    axios.post(`https://secure-sierra-71840.herokuapp.com/addProduct`, data,{
+      headers:{
+        'authorization':`Bearer ${token}`,
+        'content-type':'application/json'
+      }
+    })
       .then((res) => {
         if (res?.data?.insertedId) {
           swal({

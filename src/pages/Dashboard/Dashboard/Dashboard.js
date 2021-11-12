@@ -25,6 +25,10 @@ import NotFound from '../../Shared/NotFound/NotFound';
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
   const {admin,logOut} = UseAuth();
+
+
+
+
   return (
     <div>
       <div className="container">

@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut,createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut,createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile,getIdToken } from "firebase/auth";
 import axios from 'axios';
 import swal from "sweetalert";
 import firebaseInitialize from '../Firebase/Firebase.init';
@@ -11,7 +11,8 @@ const useFirebase = () => {
   const [user, setUser] = useState();
   const [error, setError] = useState();
   const [isLoading,setIsLoading] = useState(true);
-  const [admin,setAdmin] = useState(false)
+  const [admin,setAdmin] = useState(false);
+  const [token,setToken] = useState(''); 
 
   const auth = getAuth();
 
@@ -94,7 +95,7 @@ const useFirebase = () => {
 
   const saveUsers= (email,name,method) => {
     const saveUser= {email,name};
-    fetch('https://fast-mesa-22453.herokuapp.com/users',{
+    fetch('https://secure-sierra-71840.herokuapp.com/users',{
       method: method,
       headers: {
         'Content-Type': 'application/json'        
@@ -115,7 +116,7 @@ const useFirebase = () => {
 
 
   useEffect(() => {
-    axios(`https://fast-mesa-22453.herokuapp.com/checkAdmin/${user?.email}`)
+    axios(`https://secure-sierra-71840.herokuapp.com/checkAdmin/${user?.email}`)
     .then(res=>{
      setAdmin(res.data.admin);
     })
@@ -128,6 +129,10 @@ const useFirebase = () => {
     const unsubscribe= onAuthStateChanged(auth, (user) => {
         if (user) {
           setUser(user);
+          getIdToken(user)
+          .then((idToken) => {
+           setToken(idToken);
+          })
         } else {
           setUser({})
         }
@@ -136,8 +141,11 @@ const useFirebase = () => {
     return unsubscribe;
   },[])
 
+
+
   return {
     loginWithGoogle,
+    token,
     admin,
     user,
     setError,

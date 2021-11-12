@@ -13,7 +13,7 @@ const Facilities = () => {
             >
               <i
                 style={{ fontSize: "4rem" }}
-                class="fas fa-shipping-fast text-white py-2"
+                className="fas fa-shipping-fast text-white py-2"
               >                
               </i>
               <h2>Free Shipping</h2>
@@ -29,7 +29,7 @@ const Facilities = () => {
             >
               <i
                 style={{ fontSize: "4rem" }}
-                class="fas fa-wallet text-white py-2"
+                className="fas fa-wallet text-white py-2"
               ></i>
               <h2>Money Back Guaranty</h2>
               <p>back withing 20 days</p>
@@ -44,7 +44,7 @@ const Facilities = () => {
             >
               <i
                 style={{ fontSize: "4rem" }}
-                class="fas fa-shield-alt text-white py-2"
+                className="fas fa-shield-alt text-white py-2"
               ></i>
 
               <h2>Secure Payment</h2>

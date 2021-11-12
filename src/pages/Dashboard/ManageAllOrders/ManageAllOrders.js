@@ -2,18 +2,30 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Table, Button, Spinner } from 'react-bootstrap';
 import swal from 'sweetalert';
+import UseAuth from '../../Shared/Context/UseAuth';
 
 const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
   const [loader,setLoader] = useState(true);
   const [pageRender,setPageRender] = useState(0);
+  const {token} = UseAuth()
 
-  useEffect(() => {
-    axios("https://fast-mesa-22453.herokuapp.com/getAllOrders").then((response) => {
+
+  useEffect(() => {    
+    axios(`https://secure-sierra-71840.herokuapp.com/getAllOrders`,
+    {
+      headers: {
+        'authorization': `Bearer ${token}`,
+        'Content-type': 'application/json'
+      }
+    }
+    )
+    .then((res) => {
+      // console.log(response.data);
         setLoader(false);
-      setAllOrders(response?.data);
+      setAllOrders(res.data);
     })
-  },[pageRender]);
+  },[pageRender,token]);
 
   const handleDelete = (id) => {
     swal({
@@ -24,14 +36,20 @@ const ManageAllOrders = () => {
       })
       .then((willDelete) => {
         if (willDelete) {
-            axios.delete(`https://fast-mesa-22453.herokuapp.com/deleteOrder/${id}`)
+            fetch(`https://secure-sierra-71840.herokuapp.com/deleteOrder/${id}`,{
+                method: "DELETE",
+                headers: {
+                    'authorization': `Bearer ${token}`,
+                    'Content-type': 'application/json'
+                }
+            })
             .then(res=>{
-                console.log(res.data);
-                if(res?.data?.deletedCount){
+               console.log(res.statusText);
+                if(res?.statusText==='OK'){
                     swal("Product has been deleted!", {
                         icon: "success",
                       });
-                      const filter = allOrders.filter(product =>product._id !== id);
+                      const filter = allOrders.filter(pd =>pd._id !== id);
                       setAllOrders(filter)
                 }
             })             
@@ -42,9 +60,16 @@ const ManageAllOrders = () => {
 }
 
 const handleStatus = id => {
-    axios.put(`https://fast-mesa-22453.herokuapp.com/setStatus/${id}`)
+    fetch(`https://secure-sierra-71840.herokuapp.com/setStatus/${id}`,{
+        method: 'PUT',
+        headers: {
+            'authorization': `Bearer ${token}`,
+            'Content-type': 'application/json'
+        }
+    })
+    .then(data=> data.json())
     .then(res => {
-       if(res?.data?.modifiedCount){
+       if(res?.modifiedCount){
             swal({
                 title: "Product has been approved!",
                 icon: "success",
@@ -80,7 +105,7 @@ const handleStatus = id => {
           </thead>
           {/* ordered-product-information */}
           <tbody>
-            {allOrders.map((product,index) => {
+            {allOrders?.map((product,index) => {
               return (
                 <tr key={index} className="text-center">
                   <td>{index + 1}</td>

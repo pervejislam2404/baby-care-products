@@ -7,11 +7,16 @@ import swal from 'sweetalert';
 
 const Review = () => {
     const { register, handleSubmit,reset } = useForm();
-    const {user} = UseAuth();
+    const {user,token} = UseAuth();
 
     const onSubmit = (data) => {
         console.log(data);
-        axios.post('https://fast-mesa-22453.herokuapp.com/saveReview',data)
+        axios.post('https://secure-sierra-71840.herokuapp.com/saveReview',data,{
+          headers: {
+            'authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+            }
+        })
         .then(res=>{
            if(res?.data?.insertedId){
             swal("Review has been added!", {

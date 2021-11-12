@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Spinner, Table, Button } from 'react-bootstrap';
 import  swal from 'sweetalert';
+import UseAuth from '../../Shared/Context/UseAuth';
 
 const ManageProducts = () => {
     const [allProducts,setAllProducts] = useState([]);
-    const [loader,setLoader] = useState(true)
+    const [loader,setLoader] = useState(true);
+    const {token} = UseAuth()
 
 
     useEffect(() => {
-        axios("https://fast-mesa-22453.herokuapp.com/getAllProducts").then((res) => {
+        axios("https://secure-sierra-71840.herokuapp.com/getAllProducts").then((res) => {
             setLoader(false)
           setAllProducts(res.data);
         });
@@ -25,9 +27,13 @@ const ManageProducts = () => {
           })
           .then((willDelete) => {
             if (willDelete) {
-                axios.delete(`https://fast-mesa-22453.herokuapp.com/deleteProduct/${id}`)
+                axios.delete(`https://secure-sierra-71840.herokuapp.com/deleteProduct/${id}`,{
+                  headers:{
+                     'authorization': `Bearer ${token}`,
+                     'Content-type': 'application/json'
+                  }
+                })
                 .then(res=>{
-                    console.log(res.data);
                     if(res?.data?.deletedCount){
                         swal("Product has been deleted!", {
                             icon: "success",
