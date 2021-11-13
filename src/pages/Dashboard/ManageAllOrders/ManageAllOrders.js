@@ -86,7 +86,6 @@ const handleStatus = id => {
                     <Spinner animation="grow" variant="info" />
                 </div>}
 
-        {/* handle-all-ordered-products */}
 
           
         {!allOrders?.length && <div className="d-flex justify-content-center align-items-center p-5">
@@ -94,6 +93,7 @@ const handleStatus = id => {
                  </div>}
 
 
+        {/* handle-all-ordered-products */}
                  
         <Table striped bordered hover>
          {allOrders?.length && <thead>
@@ -106,7 +106,6 @@ const handleStatus = id => {
               <th>Price</th>
               <th>Action</th>
               <th>Manage Status</th>
-              
             </tr>
           </thead>}
 
@@ -122,8 +121,24 @@ const handleStatus = id => {
                   <td>{product?.phone}</td>
                   <td>{product?.address}</td>
                   <td>{product?.price}</td>
-                  <td><Button onClick={()=>handleDelete(product._id)} variant="danger"><i className="fas fa-trash-alt pe-2"></i>Delete</Button></td>
-                  <td><Button onClick={()=>handleStatus(product._id)} variant={product?.status=== 'shipped'? 'info':'warning'}>{product?.status}</Button></td>
+                  <td>
+                    <Button 
+                      onClick={()=>handleDelete(product._id)} 
+                      variant="danger"
+                      >
+                        <i className="fas fa-trash-alt pe-2"></i>
+                        Delete
+                    </Button>
+                  </td>
+
+                  <td>
+                    <Button 
+                      onClick={()=>handleStatus(product._id)} 
+                      variant={product?.status=== 'shipped'? 'info':'warning'}
+                      >
+                        {product?.status}
+                    </Button>
+                  </td>
                 </tr>
               );
             })}

@@ -58,9 +58,12 @@ const {user} = UseAuth();
                 {loader && <div className="text-center p-5">
                    <Spinner animation="border" />
                 </div>}
+
+                {/* empty-product-status */}
                {!products?.length && <div className="d-flex justify-content-center align-items-center p-5">
                     <h3 className="p-2 bg-danger rounded text-white">Nothing...</h3>
                  </div>}
+
 
                 <div className="row g-4 p-2">
                     {products?.map((product,index) =>{return(
