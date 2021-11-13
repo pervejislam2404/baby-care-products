@@ -2,15 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import swal from 'sweetalert';
 import UseAuth from '../../Shared/Context/UseAuth';
-import axios from 'axios';
 
 const MakeAdmin = () => {
   const { register, handleSubmit } = useForm();
   const {token} = UseAuth()
-// console.log(token)
 
   const onSubmit = (data) => {
-      console.log(token)
     fetch(`https://secure-sierra-71840.herokuapp.com/makeAdmin/${data.email}`,{
       method: 'PUT',
       headers:{
@@ -21,7 +18,6 @@ const MakeAdmin = () => {
     })
     .then(data=> data.json())
     .then(res=> {
-      console.log(res);
         if(res?.modifiedCount){
             swal({
                 title: "Good job!",

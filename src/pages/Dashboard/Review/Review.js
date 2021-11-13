@@ -10,7 +10,6 @@ const Review = () => {
     const {user,token} = UseAuth();
 
     const onSubmit = (data) => {
-        console.log(data);
         axios.post('https://secure-sierra-71840.herokuapp.com/saveReview',data,{
           headers: {
             'authorization': `Bearer ${token}`,

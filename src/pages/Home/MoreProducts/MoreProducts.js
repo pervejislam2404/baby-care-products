@@ -41,8 +41,8 @@ const MoreProducts = () => {
                     <Card.Img height="220" variant="top" src={product?.img} />
 
                     <Card.Body>
-                      <Card.Title className="text-dark fw-bold">{product?.title}</Card.Title>
-                      <Card.Text className="text-dark">{product?.description.slice(0,40)} ...</Card.Text>
+                      <Card.Title className="text-danger fw-bold">{product?.title}</Card.Title>
+                      <Card.Text className="text-muted">{product?.description.slice(0,40)} ...</Card.Text>
 
                       <div className="py-2">
                         <Rating

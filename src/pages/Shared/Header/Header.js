@@ -39,7 +39,7 @@ const Header = () => {
                 {user.email}
               </Nav.Link>}
               {!user?.email && <Nav.Link className="text-white" as={HashLink} to="/register">Register</Nav.Link> }             
-              {!user?.email && <Nav.Link className="text-white bg-danger px-3 rounded" as={HashLink} to="/login"><i class="fas fa-user pe-2"></i>Login</Nav.Link>}              
+              {!user?.email && <Nav.Link className="text-white bg-danger px-3 rounded" as={HashLink} to="/login"><i className="fas fa-user pe-2"></i>Login</Nav.Link>}              
               {user?.email && <Button className="px-2" onClick={logOut} variant="danger"><i className="fas fa-sign-out-alt px-2 fs-6"></i> logOut</Button>}
             </Nav>           
           </Navbar.Collapse>

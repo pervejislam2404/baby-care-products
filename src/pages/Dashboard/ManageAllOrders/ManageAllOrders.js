@@ -43,7 +43,6 @@ const ManageAllOrders = () => {
                 }
             })
             .then(res=>{
-               console.log(res.statusText);
                 if(res?.statusText==='OK'){
                     swal("Product has been deleted!", {
                         icon: "success",

@@ -11,12 +11,7 @@ const RattingSection = () => {
   const {token} = UseAuth()
 
   useEffect(() => {
-    axios('https://secure-sierra-71840.herokuapp.com/getAllReview',{
-      headers: {
-        'authorization': `Bearer ${token}`,
-        'Content-type': 'application/json'
-      }
-    })
+    axios('https://secure-sierra-71840.herokuapp.com/getAllReview')
     .then((res) => {
       setLoader(false)
       setReview(res.data);
