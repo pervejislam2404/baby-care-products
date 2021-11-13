@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './Products.css'
 import axios from "axios";
 import { Card, Button, Spinner } from 'react-bootstrap';
 import { useHistory } from "react-router";
@@ -32,10 +33,10 @@ const Products = () => {
           {products.map((product,index) => {
             return (
               <div key={index} className="col-12 col-lg-3">
-                <Card className="bg-info p-2">
+                <Card className="bg-info p-2 border-0 cart">
                   <Card.Img height="220" variant="top" src={product?.img} />
 
-                  <Card.Body>
+                  <Card.Body className="border-0">
                     <Card.Title className="fw-bold text-dark">{product?.title}</Card.Title>
                    <Card.Text>{product?.description.slice(0,40)} ...</Card.Text>
                     <div className="d-flex justify-content-between align-items-center">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './MoreProducts.css'
 import axios from "axios";
 import { Card, Spinner, Button } from 'react-bootstrap';
 import { useHistory } from "react-router";
@@ -35,7 +36,7 @@ const MoreProducts = () => {
               return (
                 <div key={index} className="col-12 col-lg-3">
 
-                  <Card className="bg-info p-2">
+                  <Card className="bg-info p-2 border-0 cart">
                     <Card.Img height="220" variant="top" src={product?.img} />
 
                     <Card.Body>
