@@ -21,9 +21,8 @@ const ManageAllOrders = () => {
     }
     )
     .then((res) => {
-      // console.log(response.data);
-        setLoader(false);
-      setAllOrders(res.data);
+      setLoader(false);
+      setAllOrders(res?.data);
     })
   },[pageRender,token]);
 
