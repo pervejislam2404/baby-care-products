@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import UseAuth from '../../Shared/Context/UseAuth';
 
 const MakeAdmin = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const {token} = UseAuth()
 
   const onSubmit = (data) => {
@@ -20,10 +20,10 @@ const MakeAdmin = () => {
     .then(res=> {
         if(res?.modifiedCount){
             swal({
-                title: "Good job!",
-                text: "You clicked the button!",
+                title: "Good job,user has been admin!",
                 icon: "success",
               });
+              reset()
         }else{
             swal({
                 title: "Failed!",

@@ -16,6 +16,7 @@ const useFirebase = () => {
 
   const auth = getAuth();
 
+  // login-with-google-method
   const loginWithGoogle = (location,history) => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -25,7 +26,6 @@ const useFirebase = () => {
         saveUsers(user?.email,user?.displayName,'PUT')
         swal({
           title: "Login successful!",
-          // text: "Regis ter successful!",
           icon: "success",
         });
         history.replace(redirect_url)
@@ -40,7 +40,7 @@ const useFirebase = () => {
   };
 
 
-
+// create-user-with-email-and-password
   const makeUserWithEmailPass = (email,password,name,history) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
@@ -49,7 +49,6 @@ const useFirebase = () => {
         const newUser = { email, displayName: name };
         saveUsers(email, name, "POST");
         setUser(newUser);
-        // send name to firebase after creation
         updateProfile(auth.currentUser, {
           displayName: name,
         })
@@ -58,7 +57,6 @@ const useFirebase = () => {
         history.replace("/");
         swal({
           title: "Account created successful successful!",
-          // text: "Regis ter successful!",
           icon: "success",
         });
       })
@@ -70,7 +68,7 @@ const useFirebase = () => {
   }
 
 
-
+// login-method-with-email-and-password
   const logInWithEmailAndPassword = (email, password,location,history) => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {  
@@ -81,7 +79,6 @@ const useFirebase = () => {
       history.replace(redirect_url)
       swal({
         title: "Login successful!",
-        // text: "Regis ter successful!",
         icon: "success",
       });
     })
@@ -92,7 +89,7 @@ const useFirebase = () => {
     .finally(() => setIsLoading(false))
   }
 
-
+// saving-each-user-to-database
   const saveUsers= (email,name,method) => {
     const saveUser= {email,name};
     fetch('https://secure-sierra-71840.herokuapp.com/users',{
@@ -105,6 +102,8 @@ const useFirebase = () => {
   }
 
 
+
+// logout-method
   const logOut= ()=>{
     signOut(auth).then(() => {
         setUser({})
@@ -114,7 +113,7 @@ const useFirebase = () => {
       
   }
 
-
+// checking-the-user-is-admin-or-not
   useEffect(() => {
     axios(`https://secure-sierra-71840.herokuapp.com/checkAdmin/${user?.email}`)
     .then(res=>{
@@ -124,7 +123,7 @@ const useFirebase = () => {
 
 
 
-
+// user-state-monitoring-function
   useEffect(() => {
     const unsubscribe= onAuthStateChanged(auth, (user) => {
         if (user) {
