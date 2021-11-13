@@ -37,7 +37,7 @@ const RattingSection = () => {
 
                   <Card.Body className="p-3 cart">
                     <div className="d-flex justify-content-start align-items-center">
-                      <img className="rounded-pill me-2" height="60" width="60" src={review?.img} alt="" />
+                      <img className="rounded-pill me-3" height="60" width="60" src={review?.img} alt="" />
                       <Card.Title>{review?.name}</Card.Title>
                     </div>
 
@@ -50,7 +50,7 @@ const RattingSection = () => {
                       />
                     </div>
 
-                    <Card.Text>{review?.description}</Card.Text>
+                    <Card.Text className="text-muted">{review?.description}</Card.Text>
                   </Card.Body>
 
                 </Card>

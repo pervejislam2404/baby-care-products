@@ -42,7 +42,7 @@ const MoreProducts = () => {
 
                     <Card.Body>
                       <Card.Title className="text-danger fw-bold">{product?.title}</Card.Title>
-                      <Card.Text className="text-muted">{product?.description.slice(0,40)} ...</Card.Text>
+                      <Card.Text className="text-muted">{product?.description.slice(0,60)} ...</Card.Text>
 
                       <div className="py-2">
                         <Rating

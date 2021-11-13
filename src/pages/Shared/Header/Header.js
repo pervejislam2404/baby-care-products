@@ -9,7 +9,7 @@ const Header = () => {
   const {user,logOut} = UseAuth()
 
   return (
-    <div className="bg-secondary">
+    <div style={{backgroundColor: '#000D6B'}}>
     <div className="container mx-auto">
       <Navbar expand="lg">
         <Container fluid>

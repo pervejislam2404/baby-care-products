@@ -39,7 +39,7 @@ const Products = () => {
 
                   <Card.Body className="border-0">
                     <Card.Title className="fw-bold text-danger">{product?.title}</Card.Title>
-                   <Card.Text className="text-muted">{product?.description.slice(0,40)} ...</Card.Text>
+                   <Card.Text className="text-muted">{product?.description.slice(0,60)} ...</Card.Text>
 
                    <div className="py-2">
                       <Rating
