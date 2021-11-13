@@ -88,8 +88,15 @@ const handleStatus = id => {
 
         {/* handle-all-ordered-products */}
 
+          
+        {!allOrders?.length && <div className="d-flex justify-content-center align-items-center p-5">
+                    <h3 className="p-2 bg-danger rounded text-white">Nothing...</h3>
+                 </div>}
+
+
+                 
         <Table striped bordered hover>
-          <thead>
+         {allOrders?.length && <thead>
             <tr className="text-center">
               <th>Index</th>
               <th>Product Name</th>
@@ -101,7 +108,9 @@ const handleStatus = id => {
               <th>Manage Status</th>
               
             </tr>
-          </thead>
+          </thead>}
+
+
           {/* ordered-product-information */}
           <tbody>
             {allOrders?.map((product,index) => {
