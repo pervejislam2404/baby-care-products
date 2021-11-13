@@ -47,7 +47,7 @@ const Login = () => {
                 placeholder="password"
               />
               
-              <Button variant="warning" className="px-5 fs-5 border-0" type="submit" >Login</Button>
+              <Button variant="warning" className="px-5 fs-5 border-0 w-100" type="submit" >Login</Button>
               <div className="text-center p-3">
                 
               <h5 className="text-danger">{error}</h5>
