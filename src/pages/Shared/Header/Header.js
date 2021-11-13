@@ -26,8 +26,12 @@ const Header = () => {
             >
               {/* all-navigation */}
               <Nav.Link className="text-white" as={HashLink} to="/">Home</Nav.Link>
-              <Nav.Link className="text-white" as={HashLink} to="/login">Login</Nav.Link>              
-              <Nav.Link className="text-white" as={HashLink} to="/register">Register</Nav.Link>              
+              
+              <Nav.Link className="text-white" as={HashLink} to="/moreProducts">
+                More Products
+              </Nav.Link>
+              {!user?.email && <Nav.Link className="text-white" as={HashLink} to="/login">Login</Nav.Link>}              
+              {!user?.email && <Nav.Link className="text-white" as={HashLink} to="/register">Register</Nav.Link> }             
               <Nav.Link className="text-white" as={HashLink} to="/dashboard">
                 Dashboard
               </Nav.Link>

@@ -32,7 +32,7 @@ const RattingSection = () => {
               <h1>User Review</h1>
           {loader && <Spinner animation="grow" />}
           </div>
-        <div className="row g-3">
+        <div className="row g-4">
 
           {/* showing-all-user-review */}
           {review?.map((review, index) => {
@@ -40,7 +40,7 @@ const RattingSection = () => {
               <div key={index} className="col-lg-3 col-12">
                 <Card className="border-0 rounded">
 
-                  <Card.Body className="p-3 shadow">
+                  <Card.Body className="p-3 cart">
                     <div className="d-flex justify-content-start align-items-center">
                       <img className="rounded-pill me-2" height="60" width="60" src={review?.img} alt="" />
                       <Card.Title>{review?.name}</Card.Title>

@@ -36,7 +36,6 @@ const {user} = UseAuth();
                   }
                 })
                 .then(res=>{
-                    console.log(res.data);
                     if(res?.data?.deletedCount){
                         swal("Product has been deleted!", {
                             icon: "success",
@@ -50,8 +49,7 @@ const {user} = UseAuth();
             }
           });
     }
-    
-   console.log(products)
+
     return (
         <div>
             <div className="container">

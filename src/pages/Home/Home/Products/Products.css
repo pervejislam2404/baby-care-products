@@ -1,13 +1,13 @@
 .cart {
-    transition: all 0.6;
-    -webkit-transition: all 0.6;
-    -moz-transition: all 0.6;
-    -ms-transition: all 0.6;
-    -o-transition: all 0.6;
+    transition: all 0.3s !important;
+    -webkit-transition: all 0.3s !important;
+    -moz-transition: all 0.3s !important;
+    -ms-transition: all 0.3s !important;
+    -o-transition: all 0.3s !important;
 }
 
 .cart:hover {
-    box-shadow: -1px 12px 63px 9px rgba(0, 0, 0, 0.27);
-    -webkit-box-shadow: -1px 12px 63px 9px rgba(0, 0, 0, 0.27);
-    -moz-box-shadow: -1px 12px 63px 9px rgba(0, 0, 0, 0.27);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    -moz-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }

@@ -28,7 +28,10 @@ const Banner = () => {
 
                    <div className="col-12 p-4 col-lg-6 text-danger fw-bolder d-flex justify-content-center align-items-start flex-column">
                      <h1 className="banner-text"><span className="text-primary">Get  50%</span> Off Baby Products</h1>
-                     <Button variant="danger" onClick={handleMore} className="text-white fs-4 px-3 mt-3">explore more</Button>  
+                     <Button variant="danger" onClick={handleMore} className="text-white fs-4 px-3 mt-3">
+                         Explore More
+                       <i className="fas fa-arrow-right ps-3 fs-4"></i>
+                     </Button>  
                    </div>
 
                    <div className="col-12 col-lg-6 text-center">

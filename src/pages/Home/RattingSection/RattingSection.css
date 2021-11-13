@@ -2,3 +2,9 @@
     color: rgb(226, 166, 25)!important;
     font-size: 1.2rem;
 }
+
+.cart {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}

@@ -30,7 +30,7 @@ const Description = () => {
                             <h5>TESTED FOR MINDLESS</h5>
                             <h1 className="des-text">Your Baby Deserve The Best Care</h1>
                             <p className="fs-5 text-light">For infants, the attachment contributes to their emotional growth, which also affects their development in other areas, such as physical growth. Another way to think of bonding is "falling in love" with your baby. Children thrive from having a parent or other adult in their life</p>
-                            <Button onClick={handleExplore} variant="danger" className="fs-3 px-5 rounded">explore more</Button>
+                            <Button onClick={handleExplore} variant="danger" className="fs-3 px-5 rounded">Explore More<i className="fas fa-arrow-right ps-3 fs-3"></i></Button>
                      </div>
                 </div>
             </div>
