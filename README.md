@@ -4,7 +4,7 @@
 
 # Available Features
 
-- This si a baby care product's website.
+- This is a baby care product's website.
 - Here will get the essential products for baby.
 - You can buy any kind of baby care products from here.
 - You can handle your products.
